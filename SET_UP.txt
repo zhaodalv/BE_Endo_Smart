@@ -1,0 +1,27 @@
+conda version 4.14.0
+bedtools v2.29.1
+conda create  --name XXXX --file Requirement/python_package_requirments
+
+
+export PYTHONPATH=$PYTHONPATH:absolute_path_of BE_endo_smart
+Usage example:
+
+Prediction_main.py [-h] -T EDITOR -W WORDIR -B SGRNABED -O OUTFILE Input_file
+
+positional arguments:
+  Input_file            40bp(10bp upstream + 20bp sgRNA+3bp PAM + 7bp downstream)(Tab)chr:start-end
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -T EDITOR, --Editor EDITOR
+                        BASE editor(ABE/CBE)
+  -W WORDIR, --Wordir WORDIR
+                        The directory of BE_endo_smart
+  -B SGRNABED, --SgRNABED SGRNABED
+                        Output sgRNA BED file path
+  -O OUTFILE, --Outfile OUTFILE
+                        Outfile path to store effiency and propotion result
+
+python Prediction_main.py -T CBE -W /home/wull01/ACBE_endomodel_reanalysis -B $PWD/CBE_test.bed -O $PWD/result_test /home/wull01/ACBE_endomodel_reanalysis/BE_endo_smart/test/test_input_10 
+Return:
+XXX.CBE/ABE.eff  XXX.CBE/ABE.proportion
